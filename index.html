@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan – Rafif & Inayah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     COVER / WELCOME PAGE
+     ════════════════════════════════════════ -->
+<div id="cover">
+
+  <svg class="corner-ornament corner-tl" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+  <svg class="corner-ornament corner-tr" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+  <svg class="corner-ornament corner-bl" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+  <svg class="corner-ornament corner-br" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+
+  <!-- Cover couple photo with animated rings -->
+  <div class="cover-ornament">
+    <!-- animated rings overlay -->
+    <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2;" viewBox="0 0 270 270">
+      <g class="ring">
+        <circle cx="135" cy="135" r="122" fill="none" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="4 8"/>
+        <circle cx="135" cy="13"  r="4" fill="#c9a96e"/>
+        <circle cx="135" cy="257" r="4" fill="#c9a96e"/>
+        <circle cx="13"  cy="135" r="4" fill="#c9a96e"/>
+        <circle cx="257" cy="135" r="4" fill="#c9a96e"/>
+      </g>
+      <g class="ring2">
+        <circle cx="135" cy="135" r="99" fill="none" stroke="#c9a96e" stroke-width="0.5" stroke-dasharray="2 6"/>
+        <polygon points="135,36 139,47 129,47" fill="#c9a96e" opacity="0.6"/>
+        <polygon points="135,234 139,223 129,223" fill="#c9a96e" opacity="0.6"/>
+        <polygon points="36,135 47,131 47,139"  fill="#c9a96e" opacity="0.6"/>
+        <polygon points="234,135 223,131 223,139" fill="#c9a96e" opacity="0.6"/>
+      </g>
+      <g transform="translate(135,38)" class="sparkle">
+        <path d="M0,-10 L2.5,-2.5 L10,0 L2.5,2.5 L0,10 L-2.5,2.5 L-10,0 L-2.5,-2.5 Z" fill="#c9a96e" opacity="0.75"/>
+        <path d="M0,-10 L2.5,-2.5 L10,0 L2.5,2.5 L0,10 L-2.5,2.5 L-10,0 L-2.5,-2.5 Z" fill="#c9a96e" opacity="0.45" transform="rotate(45)"/>
+      </g>
+      <circle cx="64"  cy="64"  r="2" fill="#c9a96e" opacity="0.45"/>
+      <circle cx="206" cy="64"  r="2" fill="#c9a96e" opacity="0.45"/>
+      <circle cx="64"  cy="206" r="2" fill="#c9a96e" opacity="0.45"/>
+      <circle cx="206" cy="206" r="2" fill="#c9a96e" opacity="0.45"/>
+    </svg>
+    <!-- couple photo -->
+    <div class="cover-photo-wrap silhouette">
+      <img src="assets/images/couple.png" alt="Foto Rafif & Inayah" class="cover-photo">
+    </div>
+  </div>
+
+  <p class="cover-title">Undangan Pernikahan</p>
+  <div class="cover-names">
+    Rafif<br>
+    <span class="cover-amp">&amp;</span><br>
+    Inayah
+  </div>
+  <p class="cover-date">31 · MEI · 2026</p>
+
+  <!-- recipient block — shown only when ?to= present -->
+  <div id="cover-recipient" style="display:none;margin-top:1.5rem;text-align:center;">
+    <p class="cover-recipient-label">Kepada Yth.</p>
+    <p class="cover-recipient-name" id="cover-recipient-name"></p>
+    <p class="cover-recipient-sub">Kami mengundang Anda untuk hadir<br>di hari bahagia kami</p>
+  </div>
+
+  <button class="open-btn" onclick="openInvitation()">&#10022;&nbsp; Buka Undangan &nbsp;&#10022;</button>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     MAIN CONTENT
+     ════════════════════════════════════════ -->
+<div id="main">
+
+  <!-- ── HERO ── -->
+  <section id="sec-hero" class="hero" style="max-width:100%;">
+    <div class="petal" style="left:8%;  animation-duration:6s;  animation-delay:0s;"></div>
+    <div class="petal" style="left:22%; animation-duration:8s;  animation-delay:1s;   background:#e8d5b0;"></div>
+    <div class="petal" style="left:45%; animation-duration:7s;  animation-delay:2s;"></div>
+    <div class="petal" style="left:66%; animation-duration:9s;  animation-delay:0.5s; background:#e8d5b0;"></div>
+    <div class="petal" style="left:82%; animation-duration:6.5s;animation-delay:3s;"></div>
+    <div class="petal" style="left:38%; animation-duration:7.5s;animation-delay:1.5s;"></div>
+    <div class="petal" style="left:55%; animation-duration:5.5s;animation-delay:2.5s;background:#e8d5b0;"></div>
+
+    <svg class="corner-ornament corner-tl" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-tr" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-bl" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-br" viewBox="0 0 60 60" fill="none"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+
+    <p class="hero-bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+    <p class="hero-ornament">Bismillahirrahmanirrahim</p>
+
+    <!-- hero couple photo with ring frame -->
+    <div class="hero-couple-frame silhouette">
+      <img src="assets/images/couple.png" alt="Rafif & Inayah" class="hero-couple-photo">
+      <svg class="hero-ring-svg" viewBox="0 0 220 220">
+        <circle cx="110" cy="110" r="106" fill="none" stroke="#c9a96e" stroke-width="1.2" stroke-dasharray="5,7"/>
+        <circle cx="110" cy="110" r="96"  fill="none" stroke="#c9a96e" stroke-width="0.5" opacity="0.45"/>
+        <circle cx="110" cy="4"   r="3.5" fill="#c9a96e"/>
+        <circle cx="110" cy="216" r="3.5" fill="#c9a96e"/>
+        <circle cx="4"   cy="110" r="3.5" fill="#c9a96e"/>
+        <circle cx="216" cy="110" r="3.5" fill="#c9a96e"/>
+      </svg>
+    </div>
+
+    <div class="hero-names">
+      Rafif
+      <span class="hero-amp">&amp;</span>
+      Inayah
+    </div>
+    <p class="hero-tagline">Bersatu dalam ikatan suci pernikahan</p>
+    <div class="hero-date-badge">Minggu, 31 Mei 2026</div>
+
+    <div class="countdown">
+      <div class="count-box"><span class="count-num" id="cd-days">00</span><span class="count-label">Hari</span></div>
+      <div class="count-box"><span class="count-num" id="cd-hours">00</span><span class="count-label">Jam</span></div>
+      <div class="count-box"><span class="count-num" id="cd-mins">00</span><span class="count-label">Menit</span></div>
+      <div class="count-box"><span class="count-num" id="cd-secs">00</span><span class="count-label">Detik</span></div>
+    </div>
+  </section>
+
+
+  <!-- ── MEMPELAI ── -->
+  <section id="sec-mempelai" style="background:var(--cream);">
+
+    <div class="reveal" style="text-align:center;">
+      <svg width="60" height="40" viewBox="0 0 60 40" class="mx-auto block mb-3" style="opacity:0.55;">
+        <path d="M30,2 L34,14 L46,14 L37,22 L40,34 L30,27 L20,34 L23,22 L14,14 L26,14 Z" fill="#c9a96e"/>
+        <circle cx="30" cy="18" r="4" fill="#faf6f0"/>
+      </svg>
+      <p class="section-label">Mempelai</p>
+      <h2 class="section-title">Kami yang <em>Berbahagia</em></h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin-top:1rem;line-height:1.6;direction:rtl;">
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
+      </p>
+      <p style="font-size:0.7rem;color:var(--brown-light);letter-spacing:0.05em;margin-top:0.4rem;font-style:italic;">
+        "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri"
+        <br><span style="color:var(--sage);">(QS. Ar-Rum: 21)</span>
+      </p>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+    </div>
+
+    <!-- MEMPELAI PRIA -->
+    <div class="couple-card reveal" style="margin-bottom:1.5rem;">
+      <div class="islamic-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        Mempelai Pria
+      </div>
+
+      <!-- men photo with Islamic arch frame -->
+      <div class="mempelai-photo-wrap person-svg">
+        <div class="mempelai-arch-frame">
+          <svg class="arch-svg" viewBox="0 0 200 260" preserveAspectRatio="none">
+            <path d="M8,80 Q100,-15 192,80 L192,250 Q100,262 8,250 Z" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
+            <path d="M15,84 Q100,-2  185,84 L185,246 Q100,256 15,246 Z" fill="none" stroke="#c9a96e" stroke-width="0.6" opacity="0.4"/>
+            <path d="M82,12 Q100,-4 118,12 L114,28 Q100,18 86,28 Z" fill="#c9a96e" opacity="0.55"/>
+            <circle cx="8"   cy="80"  r="3.5" fill="#c9a96e" opacity="0.6"/>
+            <circle cx="192" cy="80"  r="3.5" fill="#c9a96e" opacity="0.6"/>
+            <circle cx="8"   cy="250" r="3.5" fill="#c9a96e" opacity="0.5"/>
+            <circle cx="192" cy="250" r="3.5" fill="#c9a96e" opacity="0.5"/>
+            <path d="M8,250 Q100,266 192,250" stroke="#c9a96e" stroke-width="1" fill="none" stroke-dasharray="4,3" opacity="0.55"/>
+            <!-- islamic geometric pattern side -->
+            <path d="M8,140 L22,140 M8,160 L22,160 M8,180 L22,180" stroke="#c9a96e" stroke-width="0.6" opacity="0.3"/>
+            <path d="M178,140 L192,140 M178,160 L192,160 M178,180 L192,180" stroke="#c9a96e" stroke-width="0.6" opacity="0.3"/>
+          </svg>
+          <img src="assets/images/men.png" alt="Rafif Faisal Ghozi" class="mempelai-photo">
+        </div>
+        <!-- sparkle ornaments -->
+        <svg style="position:absolute;top:-12px;right:-8px;width:38px;height:38px;" viewBox="0 0 60 60">
+          <g class="sparkle"><path d="M30,5 L32.5,13 L41,13 L34.5,18 L37,26 L30,21.5 L23,26 L25.5,18 L19,13 L27.5,13 Z" fill="#c9a96e" opacity="0.8"/></g>
+        </svg>
+        <svg style="position:absolute;bottom:8px;left:-8px;width:26px;height:26px;" viewBox="0 0 40 40">
+          <g class="sparkle" style="animation-delay:0.7s;"><path d="M20,4 L22,11 L29,11 L23.5,15 L25.5,22 L20,18 L14.5,22 L16.5,15 L11,11 L18,11 Z" fill="#c9a96e" opacity="0.65"/></g>
+        </svg>
+      </div>
+
+      <p class="couple-bismillah">— Mempelai Pria —</p>
+      <p class="couple-name-main">Rafif</p>
+      <p class="couple-fullname">Rafif Faisal Ghozi</p>
+      <p class="couple-parent">Putra pertama dari<br><strong>Bapak Hadi Purwanto & Ibu Ani Indriani</strong></p>
+    </div>
+
+    <!-- separator star -->
+    <div style="text-align:center;margin:0.25rem 0;">
+      <svg width="44" height="44" viewBox="0 0 44 44" class="mx-auto block" style="opacity:0.7;">
+        <path d="M22,4 L24.8,13 L34,13 L26.6,18.4 L29.4,27.4 L22,22 L14.6,27.4 L17.4,18.4 L10,13 L19.2,13 Z" fill="#c9a96e"/>
+      </svg>
+    </div>
+
+    <!-- MEMPELAI WANITA -->
+    <div class="couple-card reveal">
+      <div class="islamic-badge">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Mempelai Wanita
+      </div>
+
+      <!-- women photo with Islamic arch frame -->
+      <div class="mempelai-photo-wrap person-svg2">
+        <div class="mempelai-arch-frame">
+          <svg class="arch-svg" viewBox="0 0 200 260" preserveAspectRatio="none">
+            <path d="M8,80 Q100,-15 192,80 L192,250 Q100,262 8,250 Z" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
+            <path d="M15,84 Q100,-2  185,84 L185,246 Q100,256 15,246 Z" fill="none" stroke="#c9a96e" stroke-width="0.6" opacity="0.4"/>
+            <path d="M82,12 Q100,-4 118,12 L114,28 Q100,18 86,28 Z" fill="#c9a96e" opacity="0.55"/>
+            <circle cx="8"   cy="80"  r="3.5" fill="#c9a96e" opacity="0.6"/>
+            <circle cx="192" cy="80"  r="3.5" fill="#c9a96e" opacity="0.6"/>
+            <circle cx="8"   cy="250" r="3.5" fill="#c9a96e" opacity="0.5"/>
+            <circle cx="192" cy="250" r="3.5" fill="#c9a96e" opacity="0.5"/>
+            <path d="M8,250 Q100,266 192,250" stroke="#c9a96e" stroke-width="1" fill="none" stroke-dasharray="4,3" opacity="0.55"/>
+            <path d="M8,140 L22,140 M8,160 L22,160 M8,180 L22,180" stroke="#c9a96e" stroke-width="0.6" opacity="0.3"/>
+            <path d="M178,140 L192,140 M178,160 L192,160 M178,180 L192,180" stroke="#c9a96e" stroke-width="0.6" opacity="0.3"/>
+          </svg>
+          <img src="assets/images/women.png" alt="Inayah Muhaira" class="mempelai-photo">
+        </div>
+        <svg style="position:absolute;top:-12px;left:-8px;width:38px;height:38px;" viewBox="0 0 60 60">
+          <g class="sparkle"><path d="M30,5 L32.5,13 L41,13 L34.5,18 L37,26 L30,21.5 L23,26 L25.5,18 L19,13 L27.5,13 Z" fill="#c9a96e" opacity="0.8"/></g>
+        </svg>
+        <svg style="position:absolute;bottom:8px;right:-8px;width:26px;height:26px;" viewBox="0 0 40 40">
+          <g class="sparkle" style="animation-delay:0.5s;"><path d="M20,4 L22,11 L29,11 L23.5,15 L25.5,22 L20,18 L14.5,22 L16.5,15 L11,11 L18,11 Z" fill="#c9a96e" opacity="0.65"/></g>
+        </svg>
+      </div>
+
+      <p class="couple-bismillah">— Mempelai Wanita —</p>
+      <p class="couple-name-main">Inayah</p>
+      <p class="couple-fullname">Inayah Muhaira</p>
+      <p class="couple-parent">Putri pertama dari<br><strong>Bapak Sumariyat & Ibu Siti Hodijah</strong></p>
+    </div>
+
+    <!-- closing dua -->
+    <div class="reveal" style="text-align:center;margin-top:2rem;padding:1.25rem;border:1px solid var(--gold-dim);background:white;">
+      <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--gold);direction:rtl;line-height:1.6;">
+        اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْهِمَا
+      </p>
+      <p style="font-size:0.7rem;color:var(--sage);margin-top:0.5rem;font-style:italic;">
+        "Ya Allah, berkahilah mereka berdua dan limpahkanlah keberkahan atas mereka"
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- ── JADWAL ── -->
+  <section id="sec-jadwal" style="background:white;">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Rangkaian Acara</p>
+      <h2 class="section-title">Jadwal <em>Pernikahan</em></h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="reveal">
+      <div class="schedule-item">
+        <div class="schedule-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg></div>
+        <div>
+          <p class="schedule-title">Akad Nikah</p>
+          <p class="schedule-time">Minggu, 31 Mei 2026 · 08.00 WIB</p>
+          <p class="schedule-desc">Prosesi ijab qabul disaksikan keluarga dan tamu undangan.</p>
+        </div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <p class="schedule-title">Ramah Tamah</p>
+          <p class="schedule-time">Minggu, 31 Mei 2026 · 10.00 – selesai WIB</p>
+          <p class="schedule-desc">Sesi foto bersama dan hiburan keluarga.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── LOKASI ── -->
+  <section id="sec-lokasi" style="background:var(--cream);">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Lokasi</p>
+      <h2 class="section-title">Tempat <em>Pelaksanaan</em></h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+    </div>
+    <div class="reveal">
+      <div class="map-placeholder">
+        <svg width="100%" height="100%" viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice">
+          <rect width="320" height="200" fill="#e8d5b0"/>
+          <line x1="0" y1="100" x2="320" y2="100" stroke="#d4b896" stroke-width="12"/>
+          <line x1="160" y1="0"  x2="160" y2="200" stroke="#d4b896" stroke-width="12"/>
+          <line x1="0"   y1="60" x2="120" y2="60"  stroke="#d4b896" stroke-width="6"/>
+          <line x1="200" y1="60" x2="320" y2="60"  stroke="#d4b896" stroke-width="6"/>
+          <line x1="0"   y1="150" x2="320" y2="150" stroke="#d4b896" stroke-width="6"/>
+          <rect x="30"  y="20"  width="60" height="40" rx="2" fill="#c9a96e" opacity="0.45"/>
+          <rect x="230" y="20"  width="50" height="45" rx="2" fill="#c9a96e" opacity="0.38"/>
+          <rect x="30"  y="120" width="50" height="30" rx="2" fill="#c9a96e" opacity="0.3"/>
+          <rect x="230" y="115" width="60" height="35" rx="2" fill="#c9a96e" opacity="0.45"/>
+          <circle cx="80"  cy="76" r="8" fill="#8a9e8c" opacity="0.6"/>
+          <circle cx="240" cy="76" r="8" fill="#8a9e8c" opacity="0.6"/>
+          <g class="map-pin" transform="translate(160,100)">
+            <circle cx="0" cy="-28" r="16" fill="#5c3d2e"/>
+            <path d="M-8,-16 Q0,-4 0,18 Q0,-4 8,-16 Z" fill="#5c3d2e"/>
+            <circle cx="0" cy="-28" r="8" fill="#c9a96e"/>
+            <text x="0" y="-24" text-anchor="middle" font-size="9" fill="white" font-family="serif">♥</text>
+          </g>
+        </svg>
+      </div>
+      <div style="margin-bottom:2rem;">
+        <p style="font-size:0.62rem;letter-spacing:0.3em;color:var(--sage);text-transform:uppercase;margin-bottom:0.5rem;">Akad Nikah</p>
+        <p class="location-name">Lapangan Halaman Rumah</p>
+        <p class="location-addr">...,<br>...</p>
+        <a href="https://maps.google.com" target="_blank" class="maps-btn">Buka Google Maps</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── UCAPAN ── -->
+  <section id="sec-ucapan" style="background:white;">
+    <div class="reveal" style="text-align:center;">
+      <p class="section-label">Ucapan &amp; Doa</p>
+      <h2 class="section-title">Berikan <em>Ucapan</em></h2>
+      <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
+    </div>
+
+    <div class="reveal">
+
+      <!-- ── FORM ── -->
+      <div class="wish-form">
+
+        <!-- Nama -->
+        <div class="wish-field-wrap">
+          <label class="wish-label" for="input-nama">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Nama <span class="wish-required">*</span>
+          </label>
+          <input class="wish-input" type="text" id="input-nama" placeholder="Nama lengkap Anda" maxlength="60" autocomplete="off">
+        </div>
+
+        <!-- No HP -->
+        <div class="wish-field-wrap">
+          <label class="wish-label" for="input-hp">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Nomor HP <span style="color:var(--sage);font-size:0.6rem;">(opsional)</span>
+          </label>
+          <input class="wish-input" type="tel" id="input-hp" placeholder="08xxxxxxxxxx" maxlength="16">
+        </div>
+
+        <!-- Kehadiran -->
+        <div class="wish-field-wrap">
+          <label class="wish-label" for="input-kehadiran">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Konfirmasi Kehadiran
+          </label>
+          <select class="wish-input wish-select" id="input-kehadiran">
+            <option value="" disabled selected>— Pilih konfirmasi —</option>
+            <option value="Hadir">✅ Insya Allah Hadir</option>
+            <option value="Tidak Hadir">❌ Tidak Dapat Hadir</option>
+            <option value="Masih Ragu">🤔 Masih Belum Pasti</option>
+          </select>
+        </div>
+
+        <!-- Pesan -->
+        <div class="wish-field-wrap">
+          <label class="wish-label" for="input-pesan">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Ucapan &amp; Doa <span class="wish-required">*</span>
+          </label>
+          <textarea class="wish-textarea" id="input-pesan" placeholder="Tulis ucapan dan doa untuk kedua mempelai…" maxlength="300"></textarea>
+          <p class="wish-charcount"><span id="pesan-count">0</span>/300</p>
+        </div>
+
+        <button class="wish-submit" id="btn-kirim" onclick="submitWish()">
+          <span class="btn-text" style="display:flex;align-items:center;gap:0.4rem;">
+            Kirim Ucapan
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="currentColor"/></svg>
+          </span>
+          <span class="btn-spinner" style="display:none;align-items:center;gap:0.4rem;">
+            <svg class="wish-spinner" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10" stroke-opacity="0.25"/><path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round"/></svg>
+            Mengirim…
+          </span>
+        </button>
+
+        <div id="wish-toast" class="wish-toast" style="display:none;"></div>
+      </div>
+
+      <!-- ── LIST HEADER ── -->
+      <div class="wish-list-header">
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--gold);"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:var(--brown);">Ucapan Tamu</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <span id="wish-count" class="wish-count-badge">— ucapan</span>
+          <button id="btn-refresh" onclick="loadWishes()" class="wish-refresh-btn" title="Refresh ucapan">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- skeleton -->
+      <div id="wish-skeleton" class="wish-skeleton-wrap">
+        <div class="wish-skeleton"></div>
+        <div class="wish-skeleton"></div>
+        <div class="wish-skeleton"></div>
+      </div>
+
+      <!-- list rendered by JS -->
+      <div class="wish-list" id="wish-list" style="display:none;"></div>
+
+      <!-- error -->
+      <div id="wish-error" style="display:none;text-align:center;padding:1.5rem;border:1px solid var(--gold-dim);color:var(--brown-light);font-size:0.8rem;line-height:1.7;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 0.5rem;display:block;color:var(--gold);opacity:0.7;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Gagal memuat ucapan.<br>
+        <button onclick="loadWishes()" style="background:none;border:none;color:var(--gold);cursor:pointer;font-size:0.78rem;text-decoration:underline;font-family:inherit;margin-top:0.4rem;">Coba lagi</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── TERIMA KASIH ── -->
+  <section id="sec-thanks" class="thanks-section" style="max-width:100%;">
+    <svg class="corner-ornament corner-tl" viewBox="0 0 60 60" fill="none" style="opacity:0.2;"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-tr" viewBox="0 0 60 60" fill="none" style="opacity:0.2;"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-bl" viewBox="0 0 60 60" fill="none" style="opacity:0.2;"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+    <svg class="corner-ornament corner-br" viewBox="0 0 60 60" fill="none" style="opacity:0.2;"><path d="M2 58 L2 2 L58 2" stroke="#c9a96e" stroke-width="1.5"/><path d="M2 30 Q16 16 30 2" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="3,3"/><circle cx="2" cy="2" r="3" fill="#c9a96e"/></svg>
+
+    <div class="reveal" style="max-width:480px;margin:0 auto;position:relative;text-align:center;">
+      <svg width="70" height="70" viewBox="0 0 70 70" class="mx-auto block mb-4" style="opacity:0.65;">
+        <g class="ring" style="transform-origin:35px 35px;"><circle cx="35" cy="35" r="31" fill="none" stroke="#c9a96e" stroke-width="0.8" stroke-dasharray="4,6"/></g>
+        <path d="M35,14 L37.5,22 L46,22 L39.5,27 L42,35 L35,30.5 L28,35 L30.5,27 L24,22 L32.5,22 Z" fill="#c9a96e" opacity="0.75"/>
+      </svg>
+      <p class="section-label" style="color:var(--gold-light);">Penutup</p>
+      <h2 class="thanks-title">Terima Kasih</h2>
+      <p class="thanks-text">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami.
+        <br><br>
+        Atas perhatian dan kehadiran Anda, kami mengucapkan terima kasih yang sebesar-besarnya.
+      </p>
+      <div class="divider" style="justify-content:center;margin:1.5rem 0;">
+        <div class="divider-line" style="background:rgba(201,169,110,0.4);"></div>
+        <div class="divider-diamond" style="background:var(--gold);"></div>
+        <div class="divider-line" style="background:rgba(201,169,110,0.4);"></div>
+      </div>
+      <p class="thanks-names">Rafif &amp; Inayah</p>
+      <p style="color:var(--gold-light);font-size:0.7rem;letter-spacing:0.2em;margin-top:0.4rem;opacity:0.7;">Beserta keluarga besar</p>
+
+      <!-- amplop CTA -->
+      <button onclick="openAmplop()" style="margin-top:2rem;padding:0.75rem 2rem;background:transparent;border:1px solid rgba(201,169,110,0.5);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;cursor:pointer;transition:background 0.3s,color 0.3s;display:inline-flex;align-items:center;gap:0.6rem;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/></svg>
+        Kirim Hadiah
+      </button>
+      <div id="hearts-container" style="position:absolute;inset:0;pointer-events:none;overflow:hidden;"></div>
+    </div>
+  </section>
+
+</div><!-- /main -->
+
+
+<!-- ════════════════════════════════════════
+     MODAL — AMPLOP / HADIAH
+     ════════════════════════════════════════ -->
+<div id="modal-amplop" class="modal-overlay" onclick="closeAmplop(event)" aria-modal="true" role="dialog" aria-labelledby="modal-title" style="display:none;">
+  <div class="modal-box">
+
+    <!-- close -->
+    <button class="modal-close" onclick="closeAmplop()" aria-label="Tutup">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- header ornament -->
+    <div style="text-align:center;margin-bottom:1.5rem;">
+      <svg width="52" height="52" viewBox="0 0 52 52" class="mx-auto block mb-3" style="opacity:0.7;">
+        <!-- envelope icon stylized -->
+        <rect x="4" y="12" width="44" height="30" rx="3" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
+        <path d="M4 14 L26 30 L48 14" fill="none" stroke="#c9a96e" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M4 42 L18 28 M48 42 L34 28" fill="none" stroke="#c9a96e" stroke-width="1" opacity="0.5"/>
+        <!-- star decoration -->
+        <path d="M26,3 L27.2,7 L31.4,7 L28.1,9.5 L29.3,13.5 L26,11 L22.7,13.5 L23.9,9.5 L20.6,7 L24.8,7 Z" fill="#c9a96e" opacity="0.8"/>
+      </svg>
+      <p class="modal-label">Hadiah Pernikahan</p>
+      <h2 class="modal-title" id="modal-title">Amplop Digital</h2>
+      <p class="modal-subtitle">
+        Doa dan kehadiran Anda adalah hadiah terbaik bagi kami.<br>
+        Namun jika Anda ingin memberikan hadiah, berikut informasinya.
+      </p>
+    </div>
+
+    <!-- rekening cards -->
+    <div class="rek-list">
+
+      <!-- BCA -->
+      <div class="rek-card">
+        <div class="rek-bank-row">
+          <div class="rek-bank-logo rek-bca">BCA</div>
+          <span class="rek-bank-name">Bank Central Asia</span>
+        </div>
+        <p class="rek-name-label">Atas nama</p>
+        <p class="rek-holder">Ahmad Rafif Faisal Ghozi</p>
+        <div class="rek-number-row">
+          <span class="rek-number" id="rek-bca">1234 5678 90</span>
+          <button class="rek-copy-btn" onclick="copyRek('rek-bca', this)" title="Salin nomor rekening">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Salin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mandiri -->
+      <div class="rek-card">
+        <div class="rek-bank-row">
+          <div class="rek-bank-logo rek-mandiri">Mandiri</div>
+          <span class="rek-bank-name">Bank Mandiri</span>
+        </div>
+        <p class="rek-name-label">Atas nama</p>
+        <p class="rek-holder">Inayah Muhaira Azzahra</p>
+        <div class="rek-number-row">
+          <span class="rek-number" id="rek-mandiri">1400 0987 6543 21</span>
+          <button class="rek-copy-btn" onclick="copyRek('rek-mandiri', this)" title="Salin nomor rekening">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Salin</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- GoPay / Dana -->
+      <div class="rek-card">
+        <div class="rek-bank-row">
+          <div class="rek-bank-logo rek-ewallet">E-Wallet</div>
+          <span class="rek-bank-name">GoPay / Dana / OVO</span>
+        </div>
+        <p class="rek-name-label">Atas nama</p>
+        <p class="rek-holder">Ahmad Rafif Faisal Ghozi</p>
+        <div class="rek-number-row">
+          <span class="rek-number" id="rek-ewallet">0812 3456 7890</span>
+          <button class="rek-copy-btn" onclick="copyRek('rek-ewallet', this)" title="Salin nomor">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Salin</span>
+          </button>
+        </div>
+      </div>
+
+    </div><!-- /rek-list -->
+
+    <p class="modal-footer-note">
+      🤍 Jazakallah khairan atas perhatian dan kebaikan Anda
+    </p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════
+     AUDIO PLAYER (background music)
+     Ganti src dengan file musik Anda.
+     Disarankan: format .mp3, max 5MB
+     ════════════════════════════════════════ -->
+<audio id="bg-music" loop preload="auto">
+  <!-- Ganti URL di bawah dengan file musik Anda -->
+  <source src="assets/music/wedding.mp3" type="audio/mpeg">
+  <!-- fallback online — nasyid instrumental -->
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/10/audio_2b5a49e2e8.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- ════════════════════════════════════════
+     FLOATING ACTION BUTTONS
+     (music + amplop)
+     ════════════════════════════════════════ -->
+<div class="fab-group" id="fab-group" style="display:none;">
+
+  <!-- Music toggle -->
+  <button class="fab fab-music" id="fab-music" onclick="toggleMusic()" title="Play / Pause musik">
+    <!-- note icon (playing state) -->
+    <svg id="icon-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M9 18V5l12-2v13"/>
+      <circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+    </svg>
+    <!-- pause icon (will swap in) -->
+    <svg id="icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+      <rect x="6" y="4" width="4" height="16" rx="1"/>
+      <rect x="14" y="4" width="4" height="16" rx="1"/>
+    </svg>
+    <!-- music note spin ring -->
+    <span class="fab-music-ring" id="fab-ring"></span>
+  </button>
+  <span class="fab-tooltip" id="fab-music-tip">Musik</span>
+
+  <!-- Amplop button -->
+  <button class="fab fab-amplop" id="fab-amplop" onclick="openAmplop()" title="Amplop digital">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16"/>
+      <path d="M21.5 16l-3 3"/>
+    </svg>
+  </button>
+  <span class="fab-tooltip" id="fab-amplop-tip">Amplop</span>
+
+</div>
+
+
+<!-- ════════════════════════════════════════
+     STICKY NAVIGATION — Icon only
+     ════════════════════════════════════════ -->
+<nav class="sticky-bar" id="sticky-nav" role="navigation" aria-label="Menu undangan">
+  <button id="nav-beranda"  class="nav-btn" onclick="scrollToSection('sec-hero')"     title="Beranda">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Home</span>
+  </button>
+  <button id="nav-mempelai" class="nav-btn" onclick="scrollToSection('sec-mempelai')" title="Mempelai">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    <span>Kami</span>
+  </button>
+  <button id="nav-jadwal"   class="nav-btn" onclick="scrollToSection('sec-jadwal')"   title="Jadwal">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span>Jadwal</span>
+  </button>
+  <button id="nav-lokasi"   class="nav-btn" onclick="scrollToSection('sec-lokasi')"   title="Lokasi">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span>Lokasi</span>
+  </button>
+  <button id="nav-ucapan"   class="nav-btn" onclick="scrollToSection('sec-ucapan')"   title="Ucapan">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span>Doa</span>
+  </button>
+</nav>
+
+<script src="./assets/js/main.js"></script>
+</body>
+</html>
